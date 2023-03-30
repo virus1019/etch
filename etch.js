@@ -16,18 +16,16 @@ function createGrid(){
         lineBreak.classList.add('break');
         container.appendChild(lineBreak);
     }
+    const gridBlock = document.querySelectorAll('.block')
+    gridBlock.forEach((block) => {
+        block.addEventListener('mouseover', draw);
+        block.addEventListener('mousedown', draw);
+    })
 }
 
 function draw(e) {
-    const gridBlock = document.querySelectorAll('.block')
-    gridBlock.forEach((block) => {
-        block.addEventListener('mouseover', changeColor = (e) => {
-            e.target.style.background = 'blue';
-        });
-        block.addEventListener('mousedown', changeColor = (e) => {
-            e.target.style.background = 'blue';
-        });
-    })
+    if (e.type === 'mouseover' && !mouseDown) return
+    e.target.style.background = 'blue';
 }
 
 createGrid();
